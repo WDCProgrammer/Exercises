@@ -24,7 +24,7 @@ SmartPointer<T>::SmartPointer(T *pt) : m_data(pt)
 {
     if(pt == nullptr)
     {
-        //throw exception
+        throw std::runtime_error("Can't Initialize a Smart Pointer will nullptr");
     }
 }
 
@@ -75,7 +75,7 @@ SmartPointer<T>::~SmartPointer()
     {
         std::cout << "Deleting Pointer.\n";
 
-            delete m_data;
+        delete m_data;
     }
 }
 #endif

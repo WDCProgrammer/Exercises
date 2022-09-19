@@ -31,8 +31,8 @@ bits before it’s unpacked, then print the characters in bits to confirm that t
 const int CHARCOUNT{4};
 void PrintBits(unsigned int number)
 {
-    int mask{1};
-    std::string output{};
+    int mask            {1};
+    std::string output  {};
     
     for (size_t i = 0; i < 32; i++)
     {
@@ -79,6 +79,7 @@ void UnPackCharacters(unsigned int number, std::array<char, CHARCOUNT> &arr)
     int mask{0x000000FF};
     std::cout << "Unpacking Characters: \n"
               << "Char values: ";
+
     for (size_t i = 0, shift = arr.size() - 1; i < arr.size(); i++)
     {
         // shift the number over to the last byte
@@ -86,6 +87,7 @@ void UnPackCharacters(unsigned int number, std::array<char, CHARCOUNT> &arr)
         arr[i] = (number >> (((shift - i) * 8)) & mask);
         std::cout << arr[i] << " ";
     }
+
     std::cout << "\nFinished Unpacking Characters." 
               << std::endl;
 }
@@ -94,7 +96,8 @@ void Run()
     std::array<char, CHARCOUNT> arr{};
     std::string prompt{"Please enter 4 alphabet characters to pack and then enter to finish."};
 
-    int count = 0;
+    int count       {};
+
     std::cout << prompt << std::endl;
     for (auto it = std::begin(arr); it != std::end(arr);)
     {
@@ -109,8 +112,10 @@ void Run()
         {
         //on input failure, reset input integrity and clear the buffer
             std::cin.clear();
+            
             std::string output{};
             std::cin >> output;
+
             // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "WARNING: Bad Input encountered: " << *it << output << std::endl;
             std::cout << "Please enter " << CHARCOUNT - count << " more alphabet"

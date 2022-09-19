@@ -7,7 +7,7 @@
 
 double StockType::GainAndLossPercentage() const
 {
-    double      percent{};
+    double percent{};
 
     percent     = (m_highPrice - m_lowPrice) / m_closingPrice;
 

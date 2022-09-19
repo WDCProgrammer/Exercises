@@ -27,9 +27,11 @@ std::ostream& operator<<(std::ostream& os, const StockList& stockList)
                     << std::left
                     << std::setw(16)  << std::setfill('*')
                     << "      "
+                    << std::setfill(' ')
                     << std::endl;
                     
-
+    //TODO: output the column names.
+    
     for(size_t i = 0; i < stockList.m_sortIndicesGainLoss.size(); i++)
     {
         os << stockList.m_stocks[stockList.m_sortIndicesGainLoss[i]];
@@ -60,12 +62,14 @@ void StockList::SortIndices(const std::vector<StockType>& stocks, std::vector<in
 void StockList::OpenStocks(std::string fileName)
 {
     std::ifstream file(fileName);
+
     if(!file.is_open())
     {
         throw FileError("Failed to open the file " + fileName + ".\n");
     }
 
     StockType stock;
+    
     while(file >> stock)
     {
         m_stocks.push_back(stock);

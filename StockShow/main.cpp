@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "StockList.h"
-#include "SmartPointer.h"
 
 void StockRun()
 {
@@ -22,6 +21,7 @@ void StockRun()
 int main(int argc, char *argv[])
 {
 
-   
+   StockRun();
+
     return 0;
 }
