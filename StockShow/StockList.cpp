@@ -51,7 +51,6 @@ void StockList::SortIndices(const std::vector<StockType>& stocks, std::vector<in
         que.push(indice);
     }
 
-
     while(!que.empty())
     {
         indices.push_back(que.top().m_indice);

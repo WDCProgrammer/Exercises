@@ -9,7 +9,7 @@ double StockType::GainAndLossPercentage() const
 {
     double percent{};
 
-    percent     = (m_highPrice - m_lowPrice) / m_closingPrice;
+    percent = (m_highPrice - m_lowPrice) / m_closingPrice;
 
     return percent;
 }
@@ -24,8 +24,7 @@ std::string StockType::ShowPrices()
        << m_highPrice          << " "
        << m_lowPrice           << " "
        << m_prevPrice          << "\n";
-      
-
+    
     return ss.str();
 }
 
@@ -44,7 +43,6 @@ bool StockType::operator==(const StockType& rhs)
     return m_symbolName == rhs.m_symbolName;
 }
 
-
 std::istream& operator>>(std::istream& is, StockType& stock)
 {
     is >> stock.m_symbolName
@@ -59,8 +57,6 @@ std::istream& operator>>(std::istream& is, StockType& stock)
 }
 std::ostream& operator<<(std::ostream& os, const StockType& stock)
 {
-
-
     const int       COLUMNSIZE{7};
     const int       PRECISIONSIZE{2};
 
