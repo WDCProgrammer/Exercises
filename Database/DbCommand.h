@@ -9,11 +9,12 @@ class DbCommand
     public:
 
         DbCommand(std::shared_ptr<DbConnection>  connect, const std::string& command);
-        virtual void Execute() = 0;
+        
+        virtual void                    Execute() = 0;
 
     protected:
         std::shared_ptr<DbConnection>               connection{nullptr};
-        std::string                 command{};
+        std::string                                 command{};
 
 };
 

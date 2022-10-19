@@ -11,8 +11,8 @@ class OracleConnection: public DbConnection
         explicit OracleConnection(const std::string& connection);
         ~OracleConnection() = default;
 
-        void OpenConnection() override;
-        void CloseConnection() override;
+        void                        OpenConnection() override;
+        void                        CloseConnection() override;
 
     private:
 

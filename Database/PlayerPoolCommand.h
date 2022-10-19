@@ -7,7 +7,8 @@ class PlayerPoolCommand: public DbCommand
 {
     public:
         PlayerPoolCommand(std::shared_ptr<DbConnection> connect, const std::string& cmd);
-        void Execute() override;
+       
+       void                         Execute() override;
 
     private:
 

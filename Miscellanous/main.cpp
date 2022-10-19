@@ -1,18 +1,3 @@
-
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <chrono>
-#include <memory>
-
-#include "SqlConnection.h"
-#include "DbConnection.h"
-#include "OracleConnection.h"
-#include "DbCommand.h"
-#include "PlayerPoolCommand.h"
-
 /*
 Write a function template called concat() with two template type parameters
 and two function parameters t1 and t2. The function first converts t1 and t2 to a string and
@@ -22,6 +7,16 @@ Create and use a proper concept to make sure users of the function template donâ
 it with unsupported types. Try to write your function template without using the
 template keyword.
 */
+#include <string>
+#include <concepts>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <chrono>
+#include <memory>
+
+
 template <typename T> 
 concept ConvertibleToString = requires (T a) {std::to_string(a);};
 std::string ConCat(const ConvertibleToString auto& pre,const ConvertibleToString auto& post)
@@ -237,20 +232,3 @@ void QuickSort(std::vector<int>& vec)
 {
     QuickSort(vec, 0, std::size(vec));
 }*/
-
-int main(int argc, char* argv[])
-{
-
-    std::shared_ptr<DbConnection> connect;
-    connect = std::make_shared<OracleConnection>("Player Database");
-    connect->OpenConnection();
-    connect->CloseConnection();
-
-    std::unique_ptr<DbCommand> cmd;
-    cmd = std::make_unique<PlayerPoolCommand>(connect, "Clear the Pool");
-    cmd->Execute();
-
-
-    
-    return 0;
-}

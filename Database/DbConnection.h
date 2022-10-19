@@ -13,7 +13,7 @@ class DbConnection
         virtual void        CloseConnection() = 0;
 
     protected:
-        std::string                                              connectionString{};
+        std::string                                           connectionString{};
         std::chrono::duration<double, std::ratio<1,60>>       timeout{};
 
 };
