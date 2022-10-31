@@ -1,4 +1,4 @@
-CXX=				g++
+CXX=				clang++
 CXXFLAGS=			-std=c++2a
 
 OBJ=				main.o DbConnection.o SqlConnection.o OracleConnection.o DbCommand.o DbConnection.o PlayerPoolCommand.o
